@@ -24,3 +24,12 @@ unsigned int binary_to_uint(const char *b) {
 
     return result;
 }
+
+#include <stdio.h>
+
+int main() {
+    const char *binary = "1011";
+    unsigned int result = binary_to_uint(binary);
+    _putchar(result);
+    return 0;
+}

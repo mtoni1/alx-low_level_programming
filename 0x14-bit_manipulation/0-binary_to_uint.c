@@ -2,23 +2,35 @@
 #include "main.h"
 
 /**
- * main - check the code
+ * main - Entry point
+ * Function - converts a binary number to an unsigned int
+ * @b: pointer to a string containing a binary number
  *
- * Return: Always 0.
+ * Return: the converted number, or 0 if there is one or more chars in the string b that is not 0 or 1,b is NULL
+ *
  */
+
 int main(void)
 {
     unsigned int binary_to_uint(const char *b) {
 
-    b = binary_to_uint("1");
-    printf("%u\n", b);
-    b = binary_to_uint("101");
-    printf("%u\n", b);
-    b = binary_to_uint("NULL");
-    printf("%u\n", b);
-    b = binary_to_uint("1100010");
-    printf("%u\n", b);
-    b = binary_to_uint("0000000000000000000110010010");
-    printf("%u\n", b);
-    return (0);
+   int a;
+	unsigned int num;
+
+	num = 0;
+	if (!b)
+		return (0);
+	for (a = 0; b[a] != '\0'; a++)
+	{
+		if (b[a] != '0' && b[a] != '1')
+			return (0);
+	}
+	for (a = 0; b[a] != '\0'; a++)
+	{
+		num <<= 1;
+		if (b[a] == '1')
+			num += 1;
+	}
+	return (num);
 }
+

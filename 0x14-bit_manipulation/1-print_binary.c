@@ -24,6 +24,7 @@ unsigned long int _pow(unsigned int base, unsigned int power)
  *
  * Return: void
  */
+
 void print_binary(unsigned long int n)
 {
 	unsigned long int divisor, check;
@@ -44,5 +45,9 @@ void print_binary(unsigned long int n)
 			_putchar('0');
 		}
 		divisor >>= 1;
-	}
+
+    print_binary(0);
+    printf("\n");
+    
+    return (0);
 }

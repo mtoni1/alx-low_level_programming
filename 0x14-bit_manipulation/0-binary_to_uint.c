@@ -15,21 +15,12 @@ unsigned int binary_to_uint(const char *b) {
     unsigned int result = 0;
     while (*b != '\0') {
         if (*b != '0' && *b != '1') {
-            return 0; // Invalid character in the binary string
+            return 0;
         }
 
-        result = (result << 1) | (*b == '1');
+        result = (result << 1, *b == '1');
         b++;
     }
 
     return result;
-}
-
-#include <stdio.h>
-
-int main() {
-    const char *binary = "1011";
-    unsigned int result = binary_to_uint(binary);
-    _putchar(result);
-    return 0;
 }

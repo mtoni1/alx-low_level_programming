@@ -1,30 +1,24 @@
-#include <stdbool.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
- * main - Entry point
- *Function - converts a binary number to an unsigned int
- * Return: Always 0
+ * main - check the code
+ *
+ * Return: Always 0.
  */
+int main(void)
+{
+    unsigned int binary_to_uint(const char *b) {
 
-
-unsigned int binary_to_uint(const char *b) {
-    if (!b) {
-        return 0;
-    }
-
-    unsigned int result = 0;
-    bool is_valid = true;
-
-    while (*b) {
-        if (*b != '0' && *b != '1') {
-            is_valid = false;
-            break;
-        }
-
-        result = (result << 1) | (*b == '1');
-        b++;
-    }
-
-    return is_valid ? result : 0;
+    n = binary_to_uint("1");
+    printf("%u\n", n);
+    n = binary_to_uint("101");
+    printf("%u\n", n);
+    n = binary_to_uint("1e01");
+    printf("%u\n", n);
+    n = binary_to_uint("1100010");
+    printf("%u\n", n);
+    n = binary_to_uint("0000000000000000000110010010");
+    printf("%u\n", n);
+    return (0);
 }

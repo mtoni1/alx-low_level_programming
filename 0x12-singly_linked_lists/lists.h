@@ -1,22 +1,29 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef LISTS_H
+#define LISTS_H
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 /**
- * @brief Single linked list node
+ * struct list_s - singly linked list
+ * @str: string - (malloc'ed string)
+ * @len: length of the string
+ * @next: points to the next node
  *
- * @tparam T Type of data stored in the list
+ * Description: singly linked list node structure
  */
-typedef struct list_s {
-    T data;
+typedef struct list_s
+{
+    char *str;
+    unsigned int len;
     struct list_s *next;
 } list_t;
 
-/**
- * @brief Print all the elements of a list
- *
- * @param h Head of the list
- * @return The number of nodes
- */
 size_t print_list(const list_t *h);
+size_t list_len(const list_t *h);
+list_t *add_node(list_t **head, const char *str);
+list_t *add_node_end(list_t **head, const char *str);
+void free_list(list_t *head);
 
 #endif

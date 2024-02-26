@@ -1,28 +1,36 @@
-#include "lists.h"
 #include <stdlib.h>
-
+#include <string.h>
 /**
  * add_node - adds a new node at the beginning of a list_t list
  * @head: double pointer to the address of the list
  * @str: string to store in the new node
  * Return: the address of the new element, or NULL if it failed
  */
-list_t *add_node(list_t **head, const char *str)
-{
-    list_t *new_node = malloc(sizeof(list_t));
-    if (new_node == NULL)
-        return NULL;
+typedef struct list_t {
+    char *str;
+    size_t len;
+    struct list_t *next;
+} list_t;
 
-    new_node->str = strdup(str);
-    if (new_node->str == NULL)
-    {
-        free(new_node);
+list_t *add_node(list_t **head, const char *str) {
+    list_t *new;
+
+    new = malloc(sizeof(list_t));
+    if (new == NULL) {
+        printf("Error: malloc failed\n");
         return NULL;
     }
 
-    new_node->len = strlen(str);
-    new_node->next = *head;
-    *head = new_node;
+    new->str = strdup(str);
+    if (new->str == NULL) {
+        printf("Error: strdup failed\n");
+        free(new);
+        return NULL;
+    }
 
-    return new_node;
+    new->len = strlen(str);
+    new->next = *head;
+    *head = new;
+
+    return new;
 }
